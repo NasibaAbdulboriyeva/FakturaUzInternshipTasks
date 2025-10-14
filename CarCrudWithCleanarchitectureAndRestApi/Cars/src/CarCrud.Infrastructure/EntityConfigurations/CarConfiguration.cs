@@ -1,11 +1,6 @@
 ﻿using CarCrud.Domain.Entities;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CarCrud.Infrastructure.EntityConfigurations
 {
@@ -26,6 +21,9 @@ namespace CarCrud.Infrastructure.EntityConfigurations
                    .IsRequired()
                    .HasMaxLength(100);
 
+
+            builder.HasIndex(c => c.CarNumber)
+                  .IsUnique();
             builder.Property(c => c.CarNumber)
                    .IsRequired()
                    .HasMaxLength(20);
@@ -36,6 +34,10 @@ namespace CarCrud.Infrastructure.EntityConfigurations
             builder.Property(c => c.Price)
                    .IsRequired()
                    .HasPrecision(18, 2);
+            builder.HasOne(ur => ur.User)
+                   .WithMany(u => u.Cars)
+                   .HasForeignKey(ur => ur.UserId)
+                   .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(c => c.CreatedAt)
                    .IsRequired()
@@ -43,10 +45,6 @@ namespace CarCrud.Infrastructure.EntityConfigurations
 
             builder.Property(c => c.LastModifiedAt)
                    .IsRequired(false);
-
-            builder.HasIndex(c => c.CarNumber)
-                   .IsUnique();
-
         }
     }
 }

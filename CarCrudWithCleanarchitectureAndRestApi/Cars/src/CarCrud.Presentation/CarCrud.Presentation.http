@@ -1,0 +1,6 @@
+@CarCrud.Presentation_HostAddress = http://localhost:5202
+
+GET {{CarCrud.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

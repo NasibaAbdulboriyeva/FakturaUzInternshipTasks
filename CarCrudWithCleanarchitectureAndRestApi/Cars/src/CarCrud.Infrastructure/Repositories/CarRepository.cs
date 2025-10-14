@@ -17,8 +17,8 @@ namespace CarCrud.Infrastructure.Repositories
             await _context.SaveChangesAsync();
             return car.CarId;
 
-        }
 
+        }
         public async Task RemoveAsync(long id)
         {
 
@@ -46,6 +46,15 @@ namespace CarCrud.Infrastructure.Repositories
             }
             return car;
         }
+
+        public async Task<ICollection<Car>> SelectCarsByUserIdAsync(long userId)
+        {
+            return await _context.Cars
+                .Where(c => c.UserId == userId)
+                .ToListAsync();
+        }
+
+
         public async Task UpdateAsync(Car car)
         {
             var carr = await _context.Cars.FirstOrDefaultAsync(c => c.CarId == car.CarId);

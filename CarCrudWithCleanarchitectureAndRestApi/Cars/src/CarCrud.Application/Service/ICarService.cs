@@ -1,18 +1,14 @@
-﻿using CarCrud.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CarCrud.Application.Dtos;
 
 namespace CarCrud.Application.Service
 {
     public interface ICarService
     {
-        Task<List<Car>> GetAllAsync();
-        Task<Car?> GetByIdAsync(long id);
-        Task<long> CreateAsync(Car car);
-        Task UpdateAsync(Car car);
+        Task<ICollection<GetCarDto>> GetAllAsync();
+        Task<GetCarDto?> GetByIdAsync(long id);
+        Task<long> CreateAsync(CreateCarDto dto);
+        Task<ICollection<GetCarDto>> GetCarsByUserId(long userId);
+        Task UpdateAsync(GetCarDto dto);
         Task DeleteAsync(long id);
     }
 }

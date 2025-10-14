@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CarCrud.Application\CarCrud.Application.csproj" />
+    <ProjectReference Include="..\CarCrud.Domain\CarCrud.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CarCrud.Application.Dtos
+﻿namespace CarCrud.Application.Dtos
 {
     public class GetCarDto
     {
@@ -14,6 +8,8 @@ namespace CarCrud.Application.Dtos
         public string CarNumber { get; set; }
         public int Year { get; set; }
         public decimal Price { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? LastModifiedAt { get; set; }
     }
 
 }

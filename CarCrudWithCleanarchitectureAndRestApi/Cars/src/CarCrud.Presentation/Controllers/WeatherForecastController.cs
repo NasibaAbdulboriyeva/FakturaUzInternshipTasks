@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarCrud.Controllers
+namespace CarCrud.Presentation.Controllers
 {
     [ApiController]
     [Route("[controller]")]

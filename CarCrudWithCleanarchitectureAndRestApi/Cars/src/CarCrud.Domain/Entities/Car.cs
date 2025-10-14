@@ -8,6 +8,8 @@
         public string CarNumber { get; set; }
         public int Year { get; set; }
         public decimal Price { get; set; }
+        public long UserId { get; set; }
+        public User User { get; set; } = default!;
         public DateTime CreatedAt { get; set; }
         public DateTime? LastModifiedAt { get; set; }
     }

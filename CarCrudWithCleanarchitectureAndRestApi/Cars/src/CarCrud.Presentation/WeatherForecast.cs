@@ -1,4 +1,4 @@
-namespace CarCrud
+namespace CarCrud.Presentation
 {
     public class WeatherForecast
     {
